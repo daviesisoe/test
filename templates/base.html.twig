@@ -1,28 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <title>{% block title %}{% endblock %}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
         {% block stylesheets %}
             <style>
-                h1{
-                    font-size: 70px;
-                }
+
             </style>
         {% endblock %}
     </head>
     <body>
-    <!--nav bar section-->
-    <div class="w3-bar w3-blue">
-        <a href="{{ path('home') }}" class="w3-bar-item w3-button w3-mobile">home</a>
-        <a href="{{ path('custom') }}" class="w3-bar-item w3-button w3-mobile">custom</a>
-        <a href="{{ path('custom',{name: 'tokyo'}) }}" class="w3-bar-item w3-button w3-mobile">Tokyo</a>
-    </div>
-    <div class="w3-container">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-end">
+        <a class="navbar-brand  " href="{{ path('home') }}">Personal Survey</a>
+        <button class="btn btn-success ml-auto mr-1"> <a href="javascript:void(0)">LogIn</a></button>
+    </nav>
         {% block body %}{% endblock %}
-    </div>
 
         {% block javascripts %}{% endblock %}
     </body>

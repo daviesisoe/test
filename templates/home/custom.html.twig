@@ -1,14 +1,134 @@
-{% extends('base.html.twig') %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    {% block stylesheets %}
+        <style>
 
-{% block title %}my custom page{% endblock %}
-
-{% block stylesheets %}
-    <style>
-
-    </style>
-{% endblock %}
+        </style>
+    {% endblock %}
+</head>
+<body>
 
 {% block body %}
-    <h1>welcome {{ name }} my first twig page custom</h1>
-{% endblock %}
+    <div class="container">
+        <!-- Nav pills -->
+        <ul class="nav nav-pills" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="pill" href="#home">1-10</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="pill" href="#menu1">Yes-No</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="pill" href="#menu2">Questionnaire</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('home') }}">Back</a>
+            </li>
+        </ul>
 
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div id="home" class="container tab-pane active"><br>
+                <h3>Answer as truthfully as you possibly can</h3>
+                <h4>Rate from 1 to 10</h4>
+
+                <form class="" >
+                    <div class="form-group">
+                        <label for="sel1">Question one?:</label>
+                        <select class="form-control" id="sel1" name="sellist1">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="sel2">Question two?:</label>
+                        <select class="form-control" id="sel2" name="sellist1">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+
+            </div>
+
+            <div id="menu1" class="container tab-pane fade"><br>
+                <h3>Answer as truthfully as you possibly can</h3>
+
+
+                <form >
+                    <div class="form-group" >
+                        <label >Question One? </label>
+                    </div>
+                    <div class="form-group form-check-inline">
+                        <label class="form-check-label" >
+                            <input type="checkbox" class="form-check-input" value="">Yes
+                        </label>
+                    </div>
+                    <div class="form-group form-check-inline" >
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" value="">No
+                        </label>
+                    </div>
+                    <div class=" form-group" >
+                        <label >Question Two? </label>
+                    </div>
+                    <div class="form-group form-check-inline" >
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" value="">Yes
+                        </label>
+                    </div>
+                    <div class="form-group form-check-inline" >
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" value="">No
+                        </label>
+                    </div>
+                        <br>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <div id="menu2" class="container tab-pane fade"><br>
+                <h3>Answer as truthfully as you possibly can</h3>
+
+                <form >
+                    <div class="form-group">
+                        <label for="email">Question one?</label>
+                        <input type="text" class="form-control" placeholder="Enter Answer" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Question Two?</label>
+                        <input type="text" class="form-control" placeholder="Enter Answer" id="pwd">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+    </body>
+</html>
