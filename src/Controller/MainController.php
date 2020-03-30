@@ -2,9 +2,8 @@
 
 namespace App\Controller;
 
+use Psr\Container\ContainerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class MainController extends AbstractController
@@ -19,15 +18,28 @@ class MainController extends AbstractController
     }
 
     /**
-     * @Route("/custom/{name?}", name="custom")
-     * @param Request $request
-     * @return Response
+     * @Route("/yesNo", name="yesNo")
      */
-    public function custom (Request $request) {
-        $name = $request->get('name') ;
-        return $this->render('home/custom.html.twig', [
-            'name'  => $name
-        ]);
+    public function two ()
+    {
+        return $this->render('home/yesno.html.twig');
+
+    }
+
+    /**
+     * @Route("/questionnnaire", name="questionnaire")
+     */
+    public function three ()
+    {
+        return $this->render('home/questionnaire.htm.twig');
+    }
+
+    /**
+     * @Route("/oneTen", name="oneTen")
+     */
+    public function one ()
+    {
+        return $this->render('home/oneten.html.twig');
     }
 }
 

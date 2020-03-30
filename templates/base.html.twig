@@ -3,11 +3,22 @@
     <head>
         <title>{% block title %}{% endblock %}</title>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="My project">
+        <meta name="keywords" content="my project">
+        <meta name="author" content="Davies Isoe">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({
+                google_ad_client: "ca-pub-7768231823074618",
+                enable_page_level_ads: true
+            });
+        </script>
         {% block stylesheets %}
             <style>
 
@@ -17,7 +28,7 @@
     <body>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-end">
         <a class="navbar-brand  " href="{{ path('home') }}">Personal Survey</a>
-        <button class="btn btn-success ml-auto mr-1"> <a href="javascript:void(0)">LogIn</a></button>
+        <button class="btn btn-success ml-auto mr-1"  onclick='window.location.href="{{ path('post') }}"'> Login </button>
     </nav>
         {% block body %}{% endblock %}
 
