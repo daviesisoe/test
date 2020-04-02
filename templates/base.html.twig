@@ -20,15 +20,13 @@
             });
         </script>
         {% block stylesheets %}
-            <style>
 
-            </style>
         {% endblock %}
     </head>
     <body>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-end">
         <a class="navbar-brand  " href="{{ path('home') }}">Personal Survey</a>
-        <button class="btn btn-success ml-auto mr-1"  onclick='window.location.href="{{ path('post') }}"'> Login </button>
+        <button class="btn btn-success ml-auto mr-1"  onclick='window.location.href="{{ path('app_login') }}"'> Login </button>
     </nav>
         {% block body %}{% endblock %}
 
