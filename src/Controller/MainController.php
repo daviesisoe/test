@@ -2,8 +2,9 @@
 
 namespace App\Controller;
 
-use Psr\Container\ContainerInterface;
+use App\Repository\OneTenRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class MainController extends AbstractController
@@ -28,10 +29,16 @@ class MainController extends AbstractController
 
     /**
      * @Route("/questionnnaire", name="questionnaire")
+     * @param OneTenRepository $oneTenRepository
+     * @return Response
      */
-    public function three ()
+    public function three (OneTenRepository $oneTenRepository)
     {
-        return $this->render('home/questionnaire.htm.twig');
+        $posts = $oneTenRepository->findAll();
+
+        return $this->render('home/questionnaire.htm.twig', [
+            'posts' => $posts
+        ]);
     }
 
     /**
