@@ -34,7 +34,10 @@ class MainController extends AbstractController
      */
     public function three (OneTenRepository $oneTenRepository)
     {
+
         $posts = $oneTenRepository->findAll();
+
+
 
         return $this->render('home/questionnaire.htm.twig', [
             'posts' => $posts
