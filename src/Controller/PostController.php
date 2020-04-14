@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\OneTen;
 use App\Form\PostType;
+use App\Repository\AnswersRepository;
 use App\Repository\OneTenRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -75,17 +76,23 @@ class PostController extends AbstractController
      * @route("/show/{id}", name="show")
      * @param $id
      * @param OneTenRepository $oneTenRepository
+     * @param AnswersRepository $answersRepository
      * @return Response
      */
 
-    public function show($id, OneTenRepository $oneTenRepository)
+    public function show($id, OneTenRepository $oneTenRepository, AnswersRepository $answersRepository)
 
     {
         $post = $oneTenRepository->find($id);
 
+        $answers = $answersRepository->findby(['oneTen'=> $id]);
+
+       
+
         //create the show view
         return $this->render('show.html.twig', [
-            'question' => $post
+            'question' => $post,
+		'answer' => $answers
         ]);
     }
 

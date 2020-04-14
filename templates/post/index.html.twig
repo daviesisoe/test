@@ -27,6 +27,7 @@
             <tr>
                 <th>ID</th>
                 <th>Question</th>
+		<th>Answers</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -35,10 +36,15 @@
         {% for question in posts %}
             <tr>
                 <td> {{ question.id }}</td>
-                <td><a href="{{ path('post.show', {id: question.id}) }}">
+                <td>
                         {{ question.question }}
-                    </a>
+                    
                 </td>
+		<td>
+			<a class="text-info"href="{{ path('post.show', {id: question.id}) }}">
+                        Answers
+                    </a>	
+		</td>
                 <td>
                     <a href="{{ path('post.delete', {id: question.id}) }}" class="text-danger">remove</a>
                 </td>

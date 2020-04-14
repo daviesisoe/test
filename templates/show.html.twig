@@ -10,6 +10,13 @@
 
 {% block body %}
 <h1>{{ question.question }}</h1>
+<h2 class="text-success">Given Answers</h2>
+
+   {% for answer in answer %}
+		<ul>
+                <li><h2>{{answer.reply}}</h2></li>
+		</ul>
+            {% endfor %}
 {% endblock %}
 
 

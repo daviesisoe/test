@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit OneTen{% endblock %}
+
+{% block body %}
+    <h1>Edit OneTen</h1>
+
+    {{ include('one_ten/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('one_ten_index') }}">back to list</a>
+
+    {{ include('one_ten/_delete_form.html.twig') }}
+{% endblock %}

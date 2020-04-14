@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}OneTen index{% endblock %}
+
+{% block body %}
+    <h1>OneTen index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Question</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for one_ten in one_tens %}
+            <tr>
+                <td>{{ one_ten.id }}</td>
+                <td>{{ one_ten.question }}</td>
+                <td>
+                    <a href="{{ path('one_ten_show', {'id': one_ten.id}) }}">show</a>
+                    <a href="{{ path('one_ten_edit', {'id': one_ten.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('one_ten_new') }}">Create new</a>
+{% endblock %}

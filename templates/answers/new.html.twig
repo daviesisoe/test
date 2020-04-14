@@ -8,4 +8,15 @@
     {{ include('answers/_form.html.twig') }}
 
     <a href="{{ path('answers_index') }}">back to list</a>
+
+
+    {% for question in answers[oneTen] %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ question.id }} ?</td>
+
+        </tr>
+    {% endfor %}
+
+
 {% endblock %}

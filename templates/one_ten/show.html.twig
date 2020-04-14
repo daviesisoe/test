@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}OneTen{% endblock %}
+
+{% block body %}
+    <h1>OneTen</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ one_ten.id }}</td>
+            </tr>
+            <tr>
+                <th>Question</th>
+                <td>{{ one_ten.question }}</td>
+            </tr>
+        </tbody>
+    </table>
+    {{ form_start(form, {'attr': {'class': 'form-inline'} }) }}
+
+    {{ form_row(form.reply, {'label': 'Answer'}) }}
+    {{ form_row(form.oneTen, {'value': '{{one_ten.id}}'}) }}
+
+    {{ form_row(form.submit, { 'label': 'Answer' }) }}
+    {{ form_end(form) }}
+
+    <a href="{{ path('one_ten_index') }}">back to list</a>
+
+    <a href="{{ path('one_ten_edit', {'id': one_ten.id}) }}">edit</a>
+
+    {{ include('one_ten/_delete_form.html.twig') }}
+{% endblock %}

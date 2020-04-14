@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Answers;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -15,7 +16,8 @@ class AnswerType extends AbstractType
     {
         $builder
             ->add('reply', TextType::class)
-            ->add('save', SubmitType::class, [
+            ->add('oneTen', HiddenType::class)
+            ->add('submit', SubmitType::class, [
                 'attr' => [
                     'class' => 'btn btn-success'
                 ]

@@ -25,7 +25,14 @@
 </head>
 <div>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-end">
+
+{% if is_granted('IS_AUTHENTICATED_ANONIMOUSLY') %}
     <a class="navbar-brand  " href="{{ path('home') }}">Personal Survey</a>
+{% endif %}
+
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <button class="btn btn-info "  onclick='window.location.href="{{ path('post.index') }}"'> Back </button>
+    {% endif %}
 
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
         <button class="btn btn-success ml-auto mr-1"  onclick='window.location.href="{{ path('app_logout') }}"'> Logout </button>

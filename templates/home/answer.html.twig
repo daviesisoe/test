@@ -1,0 +1,12 @@
+
+
+
+
+            {{ form_start(form, {'attr': {'class': 'form-inline'} }) }}
+
+            {{ form_row(form.reply, {'label': 'Answer'}) }}
+            {{ form_row(form.oneTen, {'value': '{{question.id}}'}) }}
+
+            {{ form_row(form.submit, { 'label': 'Answer' }) }}
+            {{ form_end(form) }}
+

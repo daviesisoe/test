@@ -34,6 +34,8 @@ class AnswersController extends AbstractController
         $form = $this->createForm(AnswersType::class, $answer);
         $form->handleRequest($request);
 
+
+
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($answer);

@@ -83,6 +83,7 @@ class OneTen
 
     public function __toString()
     {
-        return $this->question;
+        return $this->reply;
+
     }
 }

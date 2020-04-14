@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New OneTen{% endblock %}
+
+{% block body %}
+    <h1>Create new OneTen</h1>
+
+    {{ include('one_ten/_form.html.twig') }}
+
+    <a href="{{ path('one_ten_index') }}">back to list</a>
+{% endblock %}

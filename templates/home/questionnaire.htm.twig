@@ -12,6 +12,13 @@
             <h3>Answer as truthfully as possible</h3>
         </div>
     </div>
+
+	{% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
     <div class="container-fluid">
         <table class="table table-striped table-responsive">
             <thead>
@@ -28,11 +35,11 @@
                     <td>{{ loop.index }}</td>
                     <td>{{ question.question }} ?</td>
                     <td>
-                        <form class="form-inline" method="post" action="{{ path('post_answer', {'id': question.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
-                            <input type="text" class="form-control" placeholder="Enter Answer" name="reply">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
-
+                        <form class="form-inline" method="POST">
+				 <input type="text" class="form-control" placeholder="Enter answer" name="reply">
+				 <input type="hidden" class="form-control" placeholder="{{question.question}}" value="{{question.id}}" name="oneTen">		
+				 <button type="submit" class="btn btn-primary">Submit</button>	
+			</form>
 
                     </td>
                 </tr>
