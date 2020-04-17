@@ -14,7 +14,7 @@
 
 {% block body %}
 <div class="example-wrapper">
-    <h1>Questionnaire questions. please add desired question</h1>
+    <h2>Questionnaire questions. please add desired questions</h2>
 
     {% for message in app.flashes('success') %}
         <div class="alert alert-success">
@@ -25,7 +25,7 @@
     <table class="table table-striped table-responsive">
         <thead>
             <tr>
-                <th>ID</th>
+                <th>NO.</th>
                 <th>Question</th>
 		<th>Answers</th>
                 <th>Actions</th>
@@ -35,7 +35,7 @@
         <tbody>
         {% for question in posts %}
             <tr>
-                <td> {{ question.id }}</td>
+                <td> {{ loop.index }}</td>
                 <td>
                         {{ question.question }}
                     
@@ -54,6 +54,93 @@
 
     </table>
 
-    <button class="btn btn-info"  onclick='window.location.href="{{ path('post.create') }}"'>Add Question</button>
+    <button class="btn btn-info"  onclick='window.location.href="{{ path('post.create') }}"'>Add Questionnaire</button>
+</div>
+
+<div class="container pt-5">
+	<h2>Yes_NO questions. please add desired questions</h2>
+
+    {% for message in app.flashes('success_yes') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+
+	<table class="table table-striped table-responsive">
+		<thead>
+            		<tr>
+                		<th>NO.</th>
+                		<th>Question</th>
+				<th>Answers</th>
+                		<th>Actions</th>
+            		</tr>
+        	</thead>
+
+		        <tbody>
+        {% for questions in yes %}
+            <tr>
+                <td> {{ loop.index }}</td>
+                <td>
+                        {{ questions.question }}
+                    
+                </td>
+		<td>
+			<a class="text-info"href="{{ path('post.show_yes', {id: questions.id}) }}">
+                        Answers
+                    </a>	
+		</td>
+                <td>
+                    <a href="{{ path('post.delete_yes', {id: questions.id}) }}" class="text-danger">remove</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+	</table>
+
+	<button class="btn btn-info"  onclick='window.location.href="{{ path('post.create_yes_no') }}"'>Add Yes_No Question</button>
+</div>
+
+<div class="container pt-5">
+	<h2>One-Ten questions. please add desired questions</h2>
+
+    {% for message in app.flashes('success_questionnaire') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+	<table class="table table-striped table-responsive">
+		<thead>
+            		<tr>
+                		<th>NO.</th>
+                		<th>Question</th>
+				<th>Answers</th>
+                		<th>Actions</th>
+            		</tr>
+        	</thead>
+
+		        <tbody>
+        {% for questions in question %}
+            <tr>
+                <td> {{ loop.index }}</td>
+                <td>
+                        {{ questions.question }}
+                    
+                </td>
+		<td>
+			<a class="text-info"href="{{ path('post.show_questionnaire', {id: questions.id}) }}">
+                        Answers
+                    </a>	
+		</td>
+                <td>
+                    <a href="{{ path('post.delete_questionnaire', {id: questions.id}) }}" class="text-danger">remove</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+	</table>
+
+	<button class="btn btn-info"  onclick='window.location.href="{{ path('post.create_questionnaire') }}"'>Add One_Ten Question</button>
 </div>
 {% endblock %}

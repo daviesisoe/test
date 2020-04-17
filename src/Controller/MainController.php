@@ -6,6 +6,8 @@ use App\Entity\OneTen;
 use App\Entity\Answers;
 use App\Form\AnswerType;
 use App\Repository\OneTenRepository;
+use App\Repository\YesNoRepository;
+use App\Repository\QuestionnaireRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,6 +17,7 @@ class MainController extends AbstractController
 {
     /**
      * @Route("/", name="home")
+     * @return Response
      */
     public function index()
     {
@@ -24,10 +27,18 @@ class MainController extends AbstractController
 
     /**
      * @Route("/yesNo", name="yesNo")
+     *@param YesNoRepository $yesNoRepository
+     * @return Response
      */
-    public function two ()
+    public function two (YesNoRepository $yesNoRepository)
     {
-        return $this->render('home/yesno.html.twig');
+
+	$posts = $yesNoRepository->findAll();
+
+
+        return $this->render('home/yesno.html.twig', [
+		'posts' => $posts	
+	]);
 
     }
 
@@ -69,10 +80,17 @@ class MainController extends AbstractController
 
     /**
      * @Route("/oneTen", name="oneTen")
+     *@param QuestionnaireRepository $questionnaireRepository
+     * @return Response
      */
-    public function one ()
+    public function one (QuestionnaireRepository $questionnaireRepository)
     {
-        return $this->render('home/oneten.html.twig');
+
+	$posts = $questionnaireRepository->findAll();
+
+        return $this->render('home/oneten.html.twig',[
+		'posts' => $posts
+	]);
     }
 
 
